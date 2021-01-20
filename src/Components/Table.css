@@ -1,0 +1,13 @@
+.tableClass {
+    font-size: large;
+    color: black !important;
+    background-color: white !important;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+table td {
+    border: 1px solid #333;
+}
