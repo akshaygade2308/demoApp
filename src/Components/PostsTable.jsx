@@ -1,7 +1,8 @@
 import React, {Component} from 'react'
 import './Table.css'
+import { Table } from 'react-bootstrap'
 
-class Table extends Component {
+class PostsTable extends Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -9,8 +10,6 @@ class Table extends Component {
             isLoading: false,
             isError: false
         }
-        this.renderTableHeader = this.renderTableHeader.bind(this)
-        this.renderTableRows = this.renderTableRows.bind(this)
     }
 
     async componentDidMount() {
@@ -18,7 +17,6 @@ class Table extends Component {
         const response = await fetch("https://jsonplaceholder.typicode.com/posts")
         if (response.ok) {
             const posts = await response.json()
-            console.log('posts', posts)
             this.setState({posts: posts, isLoading: false})
         } else {
             this.setState({isError: true, isLoading: false})
@@ -26,8 +24,8 @@ class Table extends Component {
     }
 
     renderTableHeader = () => {
-        return Object.keys(this.state.posts[0]).map(attr => <th key={attr}>
-            {attr.toUpperCase()}
+        return Object.keys(this.state.posts[0]).map(index => <th key={index}>
+            {index.toUpperCase()}
             </th>
         )
     }
@@ -55,19 +53,21 @@ class Table extends Component {
         }
         return posts.length > 0
         ? (
-            <table className='table'>
-                <thead className='thead-dark'>
-                    <tr>
-                        {this.renderTableHeader()}
-                    </tr>
-                </thead>
-                <tbody>
-                    {this.renderTableRows()}
-                </tbody>
-            </table>
+            <div className='tableStyle'>
+                <Table striped bordered hover>
+                    <thead>
+                        <tr>
+                            {this.renderTableHeader()}
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {this.renderTableRows()}
+                    </tbody>
+                </Table>
+            </div>
         ) : (
             <div>No posts to display</div>
         )
     }
 }
-export default Table
+export default PostsTable
