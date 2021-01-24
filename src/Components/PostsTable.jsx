@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import './Table.css'
 import { Table } from 'react-bootstrap'
+const axios = require('axios').default;
 
 class PostsTable extends Component {
     constructor(props) {
@@ -12,15 +13,16 @@ class PostsTable extends Component {
         }
     }
 
-    async componentDidMount() {
+    componentDidMount() {
         this.setState({isLoading: true})
-        const response = await fetch("https://jsonplaceholder.typicode.com/posts")
-        if (response.ok) {
-            const posts = await response.json()
-            this.setState({posts: posts, isLoading: false})
-        } else {
-            this.setState({isError: true, isLoading: false})
-        }
+        axios.get("https://jsonplaceholder.typicode.com/posts")
+            .then(resp => {
+                const result = resp.data
+                this.setState({posts: result, isLoading: false})
+            })
+            .catch(err => {
+                this.setState({isError: true, isLoading: false})
+            });
     }
 
     renderTableHeader = () => {

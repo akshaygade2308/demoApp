@@ -10,7 +10,7 @@ function displayNavbar () {
         <div>
             <Router>
                 <Navbar bg="primary" variant="dark">
-                    <Navbar.Brand href="#home">My Project</Navbar.Brand>
+                    <Navbar.Brand>My Project</Navbar.Brand>
                     <Nav className="mr-auto">
                     <Nav.Link href="/">Home</Nav.Link>
                     <Nav.Link href="/tableContents">Posts</Nav.Link>
