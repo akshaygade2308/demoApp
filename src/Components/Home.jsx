@@ -1,41 +1,42 @@
 import React from 'react'
+import { Carousel } from 'react-bootstrap'
+import './Home.css'
+import logo1 from '../Images/axios1.jpg'
+import logo3 from '../Images/axios3.png'
+import logo4 from '../Images/react-bootstrap.png'
 
 function displayCarousel() {
     return (
         <div>
             <Carousel>
-                <Carousel.Item interval={1000}>
+                <Carousel.Item interval={3000}>
                     <img
                     className="d-block w-100"
-                    src="holder.js/800x400?text=First slide&bg=373940"
+                    src={logo1}
                     alt="First slide"
                     />
                     <Carousel.Caption>
-                    <h3>First slide label</h3>
-                    <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                    <h3>Axios</h3>
+                    <p>Axios is a popular, promise-based HTTP client that sports an easy-to-use API</p>
                     </Carousel.Caption>
                 </Carousel.Item>
                 <Carousel.Item interval={500}>
                     <img
                     className="d-block w-100"
-                    src="holder.js/800x400?text=Second slide&bg=282c34"
+                    src={logo4}
                     alt="Third slide"
                     />
                     <Carousel.Caption>
-                    <h3>Second slide label</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    <h3>React-Bootstrap</h3>
+                    <p>The most popular front-end framework. Rebuilt for React.</p>
                     </Carousel.Caption>
                 </Carousel.Item>
                 <Carousel.Item>
                     <img
                     className="d-block w-100"
-                    src="holder.js/800x400?text=Third slide&bg=20232a"
+                    src={logo3}
                     alt="Third slide"
                     />
-                    <Carousel.Caption>
-                    <h3>Third slide label</h3>
-                    <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
-                    </Carousel.Caption>
                 </Carousel.Item>
             </Carousel>
         </div>

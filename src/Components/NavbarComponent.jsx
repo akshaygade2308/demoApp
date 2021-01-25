@@ -2,6 +2,7 @@ import React from 'react'
 import { Navbar, Nav } from 'react-bootstrap'
 import PostsTable from './PostsTable'
 import FormComponent from './FormComponent'
+import Home from './Home'
 import ErrorPage from './ErrorPage'
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom'
 
@@ -18,7 +19,9 @@ function displayNavbar () {
                     </Nav>
                 </Navbar>
                 <Switch>
-                    <Route exact path="/"></Route>
+                    <Route exact path="/">
+                        <Home />
+                    </Route>
                     <Route path="/tableContents">
                         <PostsTable />
                     </Route>
